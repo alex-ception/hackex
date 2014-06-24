@@ -1,0 +1,14 @@
+{
+    "name": "creakiwi/hackex",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Ception",
+            "email": "alexandre@creakiwi.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "kriswallsmith/buzz": "~0.10"
+    }
+}
