@@ -7,8 +7,14 @@
             "email": "alexandre@creakiwi.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-        "kriswallsmith/buzz": "~0.10"
+        "symfony/console": "~2.3",
+        "kriswallsmith/buzz": "~0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ck\\Hackex\\": "src"
+        }
     }
 }

@@ -4,22 +4,30 @@ namespace Ck\Hackex\Service;
 
 use Buzz\Browser;
 
-class WebService
+abstract class WebService
 {
-    const URL = 'https://api.hackex.net/v3/';
-
     private $browser;
-    private $token;
+    private $result_transformer;
 
-    public function __construct()
+    public function __construct($result_transformer = null)
     {
-        $this->browser  = new Browser();
-        $this->token    = null;
+        $this->browser              = new Browser();
+        $this->result_transformer   = $result_transformer;
     }
 
-    public static function buildUrl($path, array $query = $query())
+    abstract public static function getBaseUrl();
+
+    public function buildUrl($path = null, array $query = array())
     {
-        $url = sprintf('%s%s', self::URL, $path);
+        $url = static::getBaseUrl();
+
+        if ($path !== null)
+        {
+            if ($url[strlen($url) - 1] !== '/')
+                $url .= '/';
+
+            $url = sprintf('%s%s', $url, $path);
+        }
 
         if (empty($query))
             return $url;
@@ -27,41 +35,50 @@ class WebService
         return sprintf('%s?%s', $url, http_build_query($query));
     }
 
-    public function setToken($token)
-    {
-        $this->token = $token;
-
-        return $this;
-    }
-
-    protected function getHeaders()
-    {
-        if  ($this->token === null)
-            return array(
-                'BYPASS-SERVER-MAINTENANCE' => '',
-            );
-
-        return array(
-            'X-API-KEY' => $this->token,
-        );
-    }
-
     protected function getBrowser()
     {
         return $this->browser;
     }
 
-    protected function get($path, array $query = array())
+    protected function getHeaders()
     {
-        $url = self::buildUrl($path, $query);
-
-        $this->browser->get($url, $this->getHeaders());
+        return array(
+        );
     }
 
-    protected function post($path, array $query = array())
+    protected function get($path = null, array $query = array())
     {
-        $url = self::buildUrl($path, $query);
+        $url = $this->buildUrl($path, $query);
+
+        $this->browser->get($url, $this->getHeaders());
+
+        return $this->getResult();
+    }
+
+    protected function post($path = null, array $query = array())
+    {
+        $url = $this->buildUrl($path, $query);
 
         $this->browser->post($url, $this->getHeaders());
+
+        return $this->getResult();
+    }
+
+    protected function getResult()
+    {
+        $response = $this->browser->getLastResponse()->getContent();
+
+        switch ($this->result_transformer) {
+            case 'json':
+                return json_decode($response);
+            case 'html':
+            case 'raw':
+            case null:
+            default:
+                return $response;
+            case (class_exists($this->result_transformer) === true):
+            var_dump($this->result_transformer);
+                return new ${$this->result_transformer}($response);
+        }
     }
 }
