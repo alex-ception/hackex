@@ -23,6 +23,15 @@ class TestCommand extends Command
         $ru = new RandomUserService();
         $h  = new HackexService();
 
-        var_dump($ru->get());
+        $user   = $ru->get()->results[0]->user;
+        $email  = substr($user->email, 0, strpos($user->email, '@'));
+        $nick   = $user->username;
+        $passwd = $user->password;
+
+        $output->writeln(sprintf('User: %s', $nick));
+        $output->writeln(sprintf('email: %s', $email));
+        $output->writeln(sprintf('Password: %s', $passwd));
+
+        var_dump($h->register($email, $nick, $passwd, 1));
     }
 }

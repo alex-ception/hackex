@@ -13,7 +13,7 @@ class HackexService extends WebService
 
     public static function getBaseUrl()
     {
-        return 'https://api.hackex.net/v3/';
+        return 'http://api.hackex.net/v3/';
     }
 
     public function setToken($token)
@@ -33,5 +33,22 @@ class HackexService extends WebService
         return array(
             'X-API-KEY' => $this->token,
         );
+    }
+
+    public function isOn()
+    {
+        return $this->get('check_server_maintenance');
+    }
+
+    public function register($email, $username, $password, $os_type_id)
+    {
+        $query = array(
+            'email'         => $email,
+            'username'      => $username,
+            'password'      => $password,
+            'os_type_id'    => $os_type_id,
+        );
+
+        return $this->get('user');
     }
 }

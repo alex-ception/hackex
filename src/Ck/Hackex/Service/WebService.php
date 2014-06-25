@@ -77,7 +77,6 @@ abstract class WebService
             default:
                 return $response;
             case (class_exists($this->result_transformer) === true):
-            var_dump($this->result_transformer);
                 return new ${$this->result_transformer}($response);
         }
     }
