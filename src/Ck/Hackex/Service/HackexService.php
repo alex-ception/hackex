@@ -42,13 +42,23 @@ class HackexService extends WebService
 
     public function register($email, $username, $password, $os_type_id)
     {
-        $query = array(
+        $fields = array(
             'email'         => $email,
             'username'      => $username,
             'password'      => $password,
             'os_type_id'    => $os_type_id,
         );
 
-        return $this->get('user');
+        return $this->post('user', $fields);
+    }
+
+    public function auth($email, $password)
+    {
+        $fields = array(
+            'email'     => $email,
+            'password'  => $password,
+        );
+
+        return $this->post('auth', $fields);
     }
 }

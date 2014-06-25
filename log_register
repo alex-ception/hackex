@@ -1,0 +1,144 @@
+User: heavyostrich492
+email: joseph.hamilton58
+Password: moses
+object(stdClass)#63 (7) {
+  ["success"]=>
+  bool(true)
+  ["user"]=>
+  object(stdClass)#70 (12) {
+    ["id"]=>
+    string(6) "225947"
+    ["username"]=>
+    string(15) "heavyostrich492"
+    ["ip"]=>
+    string(13) "59.118.239.67"
+    ["level"]=>
+    string(1) "1"
+    ["reputation"]=>
+    string(1) "0"
+    ["pts_to_next_level"]=>
+    string(4) "1500"
+    ["pts_level_progress"]=>
+    string(1) "0"
+    ["overclocks"]=>
+    string(2) "75"
+    ["wallpaper"]=>
+    string(1) "1"
+    ["created_at"]=>
+    string(19) "2014-06-25 07:31:16"
+    ["status"]=>
+    string(1) "1"
+    ["auth_token"]=>
+    string(36) "813CFBEC-DEA8-2239-DEF2-D55E344C5505"
+  }
+  ["user_device"]=>
+  object(stdClass)#71 (7) {
+    ["device_id"]=>
+    string(4) "4201"
+    ["name"]=>
+    string(6) "Raider"
+    ["level"]=>
+    string(1) "1"
+    ["price"]=>
+    string(1) "0"
+    ["os_type_id"]=>
+    string(1) "1"
+    ["processor"]=>
+    string(6) "1.0GHz"
+    ["description"]=>
+    string(107) "The Raider is the 1st generation of the Raider family. It's not the fastest...but it will get the job done."
+  }
+  ["user_network"]=>
+  object(stdClass)#72 (6) {
+    ["network_id"]=>
+    string(4) "8201"
+    ["name"]=>
+    string(2) "1G"
+    ["level"]=>
+    string(1) "1"
+    ["price"]=>
+    string(1) "0"
+    ["download"]=>
+    string(8) "250 kbps"
+    ["upload"]=>
+    string(7) "50 kbps"
+  }
+  ["user_bank"]=>
+  object(stdClass)#73 (5) {
+    ["id"]=>
+    string(6) "227249"
+    ["user_id"]=>
+    string(6) "225947"
+    ["checking"]=>
+    string(1) "0"
+    ["savings"]=>
+    string(4) "2500"
+    ["max_limit"]=>
+    string(4) "3000"
+  }
+  ["user_software"]=>
+  array(3) {
+    [0]=>
+    object(stdClass)#74 (7) {
+      ["software_id"]=>
+      string(7) "1011690"
+      ["software_type_id"]=>
+      string(1) "1"
+      ["name"]=>
+      string(8) "Firewall"
+      ["software_level"]=>
+      string(1) "1"
+      ["description"]=>
+      string(115) "The Firewall is your protector from malicious devices making it more difficult for attackers to access your device."
+      ["use"]=>
+      string(129) "Attackers with a Bypasser level lower than your Firewall will take longer to bypass and have a lower chance of a successful hack."
+      ["order"]=>
+      string(1) "5"
+    }
+    [1]=>
+    object(stdClass)#75 (7) {
+      ["software_id"]=>
+      string(7) "1011691"
+      ["software_type_id"]=>
+      string(1) "2"
+      ["name"]=>
+      string(8) "Bypasser"
+      ["software_level"]=>
+      string(1) "1"
+      ["description"]=>
+      string(79) "The Bypasser is your tool for bypassing Firewalls and accessing other devices. "
+      ["use"]=>
+      string(128) "Devices with a Firewall level higher than your Bypasser will take longer to bypass and have a lower chance of a successful hack."
+      ["order"]=>
+      string(1) "6"
+    }
+    [2]=>
+    object(stdClass)#76 (7) {
+      ["software_id"]=>
+      string(7) "1011692"
+      ["software_type_id"]=>
+      string(1) "4"
+      ["name"]=>
+      string(18) "Password Encryptor"
+      ["software_level"]=>
+      string(1) "1"
+      ["description"]=>
+      string(172) "The Password Encryptor is your last defense from keeping a hacker from accessing your bank account. The higher the encryption the less chance a hacker has of decrypting it."
+      ["use"]=>
+      string(143) "A Password Encryptor level higher than a hacker's Password Cracker level will take longer for them to crack and have a lower chance of success."
+      ["order"]=>
+      string(1) "8"
+    }
+  }
+  ["user_log"]=>
+  object(stdClass)#77 (4) {
+    ["id"]=>
+    string(6) "225043"
+    ["user_id"]=>
+    string(6) "225947"
+    ["text"]=>
+    string(0) ""
+    ["last_updated"]=>
+    string(19) "2014-06-25 07:31:16"
+  }
+}

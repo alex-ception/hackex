@@ -20,18 +20,13 @@ class TestCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $ru = new RandomUserService();
-        $h  = new HackexService();
+        $h      = new HackexService();
+        $user   = 'heavyostrich492';
+        $passwd = 'moses';
+        $email  = 'pauline.bryant69';
+        $token  = '813CFBEC-DEA8-2239-DEF2-D55E344C5505';
 
-        $user   = $ru->get()->results[0]->user;
-        $email  = substr($user->email, 0, strpos($user->email, '@'));
-        $nick   = $user->username;
-        $passwd = $user->password;
-
-        $output->writeln(sprintf('User: %s', $nick));
-        $output->writeln(sprintf('email: %s', $email));
-        $output->writeln(sprintf('Password: %s', $passwd));
-
-        var_dump($h->register($email, $nick, $passwd, 1));
+        $h->setToken($token);
+        var_dump($h->auth($email, $passwd));
     }
 }

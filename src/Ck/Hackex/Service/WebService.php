@@ -3,6 +3,7 @@
 namespace Ck\Hackex\Service;
 
 use Buzz\Browser;
+use Buzz\Message\RequestInterface;
 
 abstract class WebService
 {
@@ -55,11 +56,11 @@ abstract class WebService
         return $this->getResult();
     }
 
-    protected function post($path = null, array $query = array())
+    protected function post($path = null, array $fields, array $query = array())
     {
         $url = $this->buildUrl($path, $query);
 
-        $this->browser->post($url, $this->getHeaders());
+        $this->browser->submit($url, $fields, RequestInterface::METHOD_POST, $this->getHeaders());
 
         return $this->getResult();
     }
