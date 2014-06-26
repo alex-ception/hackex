@@ -61,4 +61,64 @@ class HackexService extends WebService
 
         return $this->post('auth', $fields);
     }
+    
+    public function getUser($extras = true)
+    {
+        return $this->get('user', array('extras' => $extras));
+    }
+
+    public function getContacts()
+    {
+        return $this->get('contacts');
+    }
+
+    public function getPendingContacts()
+    {
+        return $this->get('contacts_pending');
+    }
+
+    public function getStore()
+    {
+        return $this->get('store');
+    }
+
+    public function getSpam()
+    {
+        return $this->get('user_spam');
+    }
+
+    public function getSpyware()
+    {
+        return $this->get('user_spyware');
+    }
+
+    public function getBank()
+    {
+        return $this->get('user_bank');
+    }
+
+    public function getNotepad()
+    {
+        return $this->get('user_notepad');
+    }
+    
+    public function getProcesses()
+    {
+        return $this->get('user_processes');
+    }
+    
+    public function getSoftware()
+    {
+        return $this->get('user_software');
+    }
+    
+    public function getViruses()
+    {
+        return $this->get('user_viruses');
+    }
+    
+    public function getRandomUsers($total = 10)
+    {
+        return $this->get('users_random', array('count' => $total));
+    }
 }
